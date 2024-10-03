@@ -11,7 +11,7 @@ from typing import Callable
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
     '''
     Create a multiplier
-    Callable[[float], float]: A function that multiplies a float by the multiplier
+    Callable[[float], float]: function multiplies a float by the multiplier
     '''
     def multiplier_function(value: float) -> float:
         '''
