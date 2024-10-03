@@ -9,7 +9,10 @@ Define and annotate the following variables with the specified values:
 '''
 
 
-a: int = 1 # variable name - type - value
+a: int = 1   # variable name - type - value
 pi: float = 3.14
 i_understand_annotations: bool = True
-school: str = “Holberton”
+school: str = ''Holberton''
+'''
+Every variable has been defined with the correct value
+'''
