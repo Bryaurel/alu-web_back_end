@@ -8,6 +8,8 @@ import math
 
 def floor(n: float) -> int:
     # return the floor of the float
-    # The floor is the largest integer less or equal to the given float n
-    # The floor value should always be an integer 'int'
+    '''
+    The floor is the largest integer less or equal to the given float n
+    The floor value should always be an integer 'int'
+    '''
     return math.floor(n)
