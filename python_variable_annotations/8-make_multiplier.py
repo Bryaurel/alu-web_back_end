@@ -8,7 +8,7 @@ from typing import Callable
 # can be called like a function
 
 
-def make_multiplier(multiplier: float) -> Callable[[float]. float]:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     '''
     Create a multiplier
     Callable[[float], float]: A function that multiplies a float by the multiplier
