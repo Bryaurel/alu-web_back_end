@@ -3,8 +3,11 @@
 type-annotated function floor which takes a float n as argument
 and returns the floor of the float.
 '''
+import math
 
 
-def floor(n: float) -> floor:
+def floor(n: float) -> int:
     # return the floor of the float
-    return n
+    # The floor is the largest integer less or equal to the given float n
+    # The floor value should always be an integer 'int'
+    return math.floor(n)
