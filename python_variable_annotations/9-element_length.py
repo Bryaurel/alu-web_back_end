@@ -5,10 +5,9 @@ and return values with the appropriate types
 '''
 from typing import List, Tuple, Iterable, Sequence
 
-
 def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     '''
-    Takes an iterable of sequences and returns a list of tuples, 
+    Takes an iterable of sequences and returns a list of tuples,
     where each tuple contains a sequence and its length.
     
     Args:
