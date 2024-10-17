@@ -5,7 +5,8 @@ and write an async routine called wait_n that takes in 2 int arguments
 '''
 import asyncio
 from typing import List
-from 0-basic_async_syntax.py import wait_random
+
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay:int) -> List[float]:
@@ -26,8 +27,5 @@ async def wait_n(n: int, max_delay:int) -> List[float]:
     # asyncio.gather to run them concurrently and collect the completed results
     delays = await asyncio.gather(*tasks)
 
-    '''
-    Since the list can't be sorted directly, we'll ensure that we append
-    as the tasks complete, which naturally gives us sorted order
-    '''
+    #Sort the delay manually using sorted()
     return sorted(delays)  # Sort the list manually without using sort()
