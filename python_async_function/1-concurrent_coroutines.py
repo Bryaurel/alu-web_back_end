@@ -27,5 +27,13 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     # asyncio.gather to run them concurrently and collect the completed results
     delays = await asyncio.gather(*tasks)
 
+    # Debugging: Print the unsorted delays
+    print("Unsorted delays:", delays)
+
     # Sort the delay manually using sorted()
-    return sorted(delays)  # Sort the list manually without using sort()
+    sorted_delays = sorted(delays)
+    
+    # Debugging: Print the sorted delays
+    print("Sorted delays:", sorted_delays)
+    
+    return sorted_delays
