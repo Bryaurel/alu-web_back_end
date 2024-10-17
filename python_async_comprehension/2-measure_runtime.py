@@ -23,7 +23,5 @@ async def measure_runtime() -> float:
     )
 
     end_time = time()  # End the timer
-    total_runtime = end_time - start
 
-    return total_runtime
-    
+    return end - start
