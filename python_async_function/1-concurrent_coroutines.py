@@ -9,7 +9,7 @@ from typing import List
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay:int) -> List[float]:
+async def wait_n(n: int, max_delay: int) -> List[float]:
     '''
     spawns wait_random n times with the specified max_delay
     returns a list of delays in ascending order without using sort()
@@ -27,5 +27,5 @@ async def wait_n(n: int, max_delay:int) -> List[float]:
     # asyncio.gather to run them concurrently and collect the completed results
     delays = await asyncio.gather(*tasks)
 
-    #Sort the delay manually using sorted()
+    # Sort the delay manually using sorted()
     return sorted(delays)  # Sort the list manually without using sort()
