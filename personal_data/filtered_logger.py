@@ -24,12 +24,16 @@ class RedactingFormatter(logging.Formatter):
     SEPARATOR = ";"
 
     def __init__(self, fields: List[str]):
-        """ init """
+        """
+        initialize
+        """
         super(RedactingFormatter, self).__init__(self.FORMAT)
         self.fields = fields
 
     def format(self, record: logging.LogRecord) -> str:
-        """ format record """
+        """
+        format record
+        """
         return filter_datum(self.fields, self.REDACTION,
                             super(RedactingFormatter, self).format(record),
                             self.SEPARATOR)
@@ -37,14 +41,18 @@ class RedactingFormatter(logging.Formatter):
 
 def filter_datum(fields: List[str], redaction: str, message: str,
                  separator: str) -> str:
-    """ returns the log message obfuscated """
+    """
+    returns the log message obfuscated
+    """
     return re.sub(r"(\w+)=([a-zA-Z0-9@\.\-\(\)\ \:\^\<\>\~\$\%\@\?\!\/]*)",
                   lambda match: match.group(1) + "=" + redaction
                   if match.group(1) in fields else match.group(0), message)
 
 
 def get_logger() -> logging.Logger:
-    """ return a logger object """
+    """
+    returns a logger object
+    """
     lg = logging.getLogger("user_data")
     lg.setLevel(logging.INFO)
     lg.propagate = False
@@ -55,7 +63,9 @@ def get_logger() -> logging.Logger:
 
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
-    """ connect to MySQL database """
+    """
+    connects to MySQL database
+    """
     return mysql.connector.connect(
         host=os.getenv("PERSONAL_DATA_DB_HOST", "root"),
         database=os.getenv("PERSONAL_DATA_DB_NAME"),
@@ -65,7 +75,9 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
 
 
 def main():
-    """main function"""
+    """
+    main function
+    """
     con = get_db()
     users = con.cursor()
     users.execute("SELECT CONCAT('name=', name, ';ssn=', ssn, ';ip=', ip, \
