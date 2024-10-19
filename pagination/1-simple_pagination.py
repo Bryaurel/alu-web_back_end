@@ -7,6 +7,7 @@ import csv
 import math
 from typing import List
 
+
 def index_range(page: int, page_size: int) -> tuple:
     '''
     Return a tuple containing the start index and end index
@@ -38,18 +39,23 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """ This is a method that takes two integer arguments page with
-            default value 1 and page_size with default value 10
         """
-        assert isinstance(page, int) and page > 0
-        assert isinstance(page_size, int) and page_size > 0
+        Get the correct page from the dataset based on page and page_size.
+        """
+        # Ensure that page and page_size are valid integers greater than 0
+        assert isinstance(page, int) and page > 0, \
+            "page must be a positive integer"
+        assert isinstance(page_size, int) and page_size > 0, \
+            "page_size must be a positive integer"
 
-        start_index, end_index = self.index_range(page, page_size)
-        dataset = self.dataset()
+        # Get the start and end index for the pagination
+        start_index, end_index = index_range(page, page_size)
 
-        if start_index >= len(dataset):
+        # Fetch the dataset
+        data = self.dataset()
+
+        # Return the appropriate slice of data
+        if start_index >= len(data):
             return []
-        elif end_index >= len(dataset):
-            return dataset[start_index:]
-        else:
-            return dataset[start_index:end_index]
+
+        return data[start_index:end_index]
