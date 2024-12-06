@@ -13,8 +13,15 @@ from flask import g, request
 from flask import render_template
 from flask_babel import Babel
 from flask_babel import format_datetime
+from jinja2 import Environment, FileSystemLoader
 
 
+
+# Create Jinja2 environnement
+env = Environment(
+    loader=FileSystemLoader('templates'),
+    autoescape=True  
+)
 class Config(object):
     """
     Application configuration class
